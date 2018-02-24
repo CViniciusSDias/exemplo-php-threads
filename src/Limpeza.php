@@ -20,7 +20,7 @@ class Limpeza extends AbstractTarefa
     /**
      * Em um loop infinito, verifica se o banheiro está sujo, e caso esteja, o limpa
      */
-    public function run()
+    public function run(): void
     {
         while (!$this->chegouAoFim) {
             $this->banheiro->synchronized(function () {
@@ -32,7 +32,7 @@ class Limpeza extends AbstractTarefa
     /**
      * Indica que a limpeza já não é mais necessária
      */
-    public function finalizar()
+    public function finalizar(): void
     {
         $this->chegouAoFim = true;
     }
