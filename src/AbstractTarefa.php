@@ -8,5 +8,5 @@ abstract class AbstractTarefa extends \Thread
         sleep($segundos);
     }
 
-    abstract public function __toString();
+    abstract public function __toString(): string;
 }

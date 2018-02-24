@@ -28,7 +28,7 @@ class Limpeza extends AbstractTarefa
         $this->chegouAoFim = true;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return 'Limpeza nº' . $this->getThreadId();
     }
