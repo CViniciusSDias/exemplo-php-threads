@@ -23,9 +23,7 @@ class Limpeza extends AbstractTarefa
     public function run(): void
     {
         while (!$this->chegouAoFim) {
-            $this->banheiro->synchronized(function () {
-                $this->banheiro->limpa($this);
-            });
+            $this->banheiro->limpa($this);
         }
     }
 

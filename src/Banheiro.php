@@ -69,15 +69,19 @@ class Banheiro extends \Threaded
         echo "$limpeza está batendo na porta" . PHP_EOL;
 
         $this->synchronized(function () use ($limpeza) {
+            echo "$limpeza: Entrando no banheiro" . PHP_EOL;
             if (!$this->estaSujo) {
                 echo "$limpeza: Não está sujo" . PHP_EOL;
+                echo "$limpeza: Saindo do banheiro" . PHP_EOL;
                 return;
             }
 
             $this->estaSujo = false;
             echo "$limpeza: Limpando banheiro" . PHP_EOL;
             $limpeza->sleep(1);
+            echo "$limpeza: Saindo do banheiro" . PHP_EOL;
             $this->notify();
         });
+        $limpeza->sleep(2);
     }
 }
