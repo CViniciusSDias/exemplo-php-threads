@@ -36,7 +36,7 @@ class Banheiro extends \Threaded
     {
         echo "$convidado está batendo na porta" . PHP_EOL;
 
-        $this->synchronized(function() use ($convidado) {
+        $this->synchronized(function () use ($convidado) {
             $this->verificaSeEstaSujo($convidado);
             echo "$convidado fazendo número 2" . PHP_EOL;
             $convidado->sleep(3);
