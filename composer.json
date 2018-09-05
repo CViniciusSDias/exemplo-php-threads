@@ -3,5 +3,8 @@
         "psr-4": {
             "CViniciusSDias\\Threads\\": "src/"
         }
+    },
+    "require": {
+        "ext-pthreads": "^3.0.0"
     }
 }
