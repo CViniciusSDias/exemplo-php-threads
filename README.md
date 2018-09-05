@@ -1,6 +1,27 @@
 # Exemplo do uso de Threads com PHP
 
-## Descrição
+## Exemplo de tarefas "demoradas"
+
+### Arquivo executável do exemplo
+
+`tarefas-demoradas.php`
+
+
+### Descrição
+
+Neste **simples** exemplo, há um cenário com 2 tarefas bloqueantes e demoradas.
+A primeira tarefa dura 2 segundos, enquanto a segunda tarefa tem duração de 1 segundo.
+
+Ambas são executadas paralelamente, mostrando que não há necessidade de uma esperar a outra.
+
+## Exemplo da festa (banheiro)
+
+### Arquivo executável do exemplo
+
+`banheiro.php`
+
+
+### Descrição
 
 Neste **simples** exemplo, temos um cenário onde há 4 convidados (em uma festa), 2 "pessoas" para limpeza, e apenas 1
 banheiro. 
@@ -16,7 +37,7 @@ As 2 pessoas de limpeza se comportam de forma diferente dos convidados, tentando
 
 ## Requisitos
 
-Para rodar este simples exemplo, será necessário:
+Para rodar estes exemplos, será necessário:
 - PHP 7.2+
 - Extensão pthreads na versão 3 habilitada
 
@@ -24,5 +45,5 @@ Com isso, basta clonar este repositório e rodar `php banheiro.php`.
 
 ## Notas
 
-Este exemplo é para fins acadêmicos apenas, não estando de acordo com os melhores padrões de codificação, e nem há
+Estes exemplos são para fins acadêmicos apenas, não estando de acordo com os melhores padrões de codificação, e nem há
 intenção de mudar isso
