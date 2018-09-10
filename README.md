@@ -41,7 +41,16 @@ Para rodar estes exemplos, será necessário:
 - PHP 7.2+
 - Extensão pthreads na versão 3 habilitada
 
-Com isso, basta clonar este repositório e rodar `php banheiro.php`.
+## Docker
+
+Para que você possa utilizar o Docker para configurar o ambiente de testes, utilize os seguintes comandos estando no
+diretório deste projeto
+
+    docker build -t php-zts . # Configura o ambiente
+    docker run -itv $(pwd):/home php-zts # Abre o bash em sua máquina docker
+    composer dump # Configura o autoload do composer
+    php tarefas-demoradas.php # Executa o primeiro exemplo
+    php banheiro.php # Executa o segundo exemplo
 
 ## Notas
 
