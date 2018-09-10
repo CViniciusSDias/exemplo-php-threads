@@ -20,12 +20,12 @@ class Banheiro extends \Threaded
     {
         echo "$convidado está batendo na porta" . PHP_EOL;
 
-        $this->synchronized(function () use ($convidado) {
-            $this->verificaSeEstaSujo($convidado);
+        $this->synchronized(function (Banheiro $banheiro, Convidado $convidado) {
+            $banheiro->verificaSeEstaSujo($convidado);
             echo "$convidado fazendo número 1" . PHP_EOL;
             $convidado->sleep(2);
             echo "$convidado saindo do banheiro" . PHP_EOL;
-        });
+        }, $this, $convidado);
     }
 
     /**
@@ -36,13 +36,13 @@ class Banheiro extends \Threaded
     {
         echo "$convidado está batendo na porta" . PHP_EOL;
 
-        $this->synchronized(function () use ($convidado) {
-            $this->verificaSeEstaSujo($convidado);
+        $this->synchronized(function (Banheiro $banheiro, Convidado $convidado) {
+            $banheiro->verificaSeEstaSujo($convidado);
             echo "$convidado fazendo número 2" . PHP_EOL;
             $convidado->sleep(3);
-            $this->estaSujo = true;
+            $banheiro->estaSujo = true;
             echo "$convidado saindo do banheiro" . PHP_EOL;
-        });
+        }, $this, $convidado);
     }
 
     /**
@@ -68,20 +68,20 @@ class Banheiro extends \Threaded
     {
         echo "$limpeza está batendo na porta" . PHP_EOL;
 
-        $this->synchronized(function () use ($limpeza) {
+        $this->synchronized(function (Banheiro $banheiro, Limpeza $limpeza) {
             echo "$limpeza: Entrando no banheiro" . PHP_EOL;
-            if (!$this->estaSujo) {
+            if (!$banheiro->estaSujo) {
                 echo "$limpeza: Não está sujo" . PHP_EOL;
                 echo "$limpeza: Saindo do banheiro" . PHP_EOL;
                 return;
             }
 
-            $this->estaSujo = false;
+            $banheiro->estaSujo = false;
             echo "$limpeza: Limpando banheiro" . PHP_EOL;
             $limpeza->sleep(1);
             echo "$limpeza: Saindo do banheiro" . PHP_EOL;
-            $this->notify();
-        });
+            $banheiro->notify();
+        }, $this, $limpeza);
         $limpeza->sleep(2);
     }
 }
