@@ -52,7 +52,7 @@ class Banheiro extends \Threaded
     protected function verificaSeEstaSujo(Convidado $convidado): void
     {
         echo "$convidado entrando no banheiro" . PHP_EOL;
-        if ($this->estaSujo) {
+        while ($this->estaSujo) {
             echo "$convidado: Eca, o banheiro está sujo" . PHP_EOL;
             echo "$convidado: Saindo para esperar a limpeza" . PHP_EOL;
             $this->wait();
