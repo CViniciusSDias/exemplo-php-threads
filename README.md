@@ -56,3 +56,6 @@ diretório deste projeto
 
 Estes exemplos são para fins acadêmicos apenas, não estando de acordo com os melhores padrões de codificação, e nem há
 intenção de mudar isso
+
+## Link para palestra
+https://speakerdeck.com/cviniciussdias/programacao-paralela-com-php-extensao-pthreads 
